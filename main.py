@@ -50,7 +50,7 @@ def selecionar_arquivo():
 def rodar_preprocessamento():
     script_path = os.path.join(SCRIPTS_DIR, "text_normalizer.py")
     try:
-        subprocess.run(["python", script_path], check=True)
+        subprocess.run(["python", script_path], cwd=BASE_DIR, check=True)
         messagebox.showinfo("Sucesso", "Pré-processamento concluído! (input_clean.txt gerado)")
     except Exception as e:
         messagebox.showerror("Erro", f"Falha ao rodar pré-processamento:\n{e}")
@@ -58,7 +58,7 @@ def rodar_preprocessamento():
 def rodar_filtro_cpp():
     exe_path = os.path.join(BIN_DIR, "high_level_filter")
     try:
-        subprocess.run([exe_path], check=True)
+        subprocess.run([exe_path], cwd=BASE_DIR, check=True)
         messagebox.showinfo("Sucesso", "Filtro C++ executado! (output_cpp.txt gerado)")
     except FileNotFoundError:
         messagebox.showerror("Erro", "Executável do C++ não encontrado. Compile-o e coloque na pasta /bin.")
@@ -67,13 +67,11 @@ def rodar_filtro_cpp():
 
 def rodar_filtro_riscv():
     asm_path = os.path.join(SRC_DIR, "low_level_filter.asm")
-    
     if not os.path.exists(RARS_PATH):
-        messagebox.showwarning("Aviso", "Arquivo rars.jar não encontrado na raiz do projeto. Por favor, coloque o RARS lá para a execução automatizada funcionar.")
+        messagebox.showwarning("Aviso", "Arquivo rars.jar não encontrado na raiz do projeto.")
         return
-
     try:
-        subprocess.run(["java", "-jar", RARS_PATH, "nc", asm_path], check=True)
+        subprocess.run(["java", "-jar", RARS_PATH, "nc", asm_path], cwd=BASE_DIR, check=True)
         messagebox.showinfo("Sucesso", "Filtro RISC-V executado! (output_riscv.txt gerado)")
     except Exception as e:
         messagebox.showerror("Erro", f"Falha ao executar o Assembly:\n{e}")
@@ -83,14 +81,14 @@ def abrir_txt(caminho):
         messagebox.showwarning("Aviso", f"O arquivo não existe ainda:\n{caminho}")
         return
     try:
-        subprocess.run(["xdg-open", caminho])
+        subprocess.run(["xdg-open", caminho], cwd=BASE_DIR)
     except Exception as e:
         messagebox.showerror("Erro", f"Não foi possível abrir o arquivo:\n{e}")
 
 def rodar_comparacao():
     exe_path = os.path.join(BIN_DIR, "output_comparator")
     try:
-        resultado = subprocess.run([exe_path], capture_output=True, text=True, check=True)
+        resultado = subprocess.run([exe_path], cwd=BASE_DIR, capture_output=True, text=True, check=True)
         messagebox.showinfo("Resultado da Comparação", resultado.stdout)
     except subprocess.CalledProcessError as e:
         messagebox.showwarning("Diferença Encontrada!", e.stdout)
