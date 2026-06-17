@@ -1,0 +1,6 @@
+O Processamento de Linguagem Natural (PLN) e uma subarea da Inteligência Artificial (IA) que estuda a interacao entre computadores e a linguagem humana. 
+Seu objetivo e permitir que sistemas computacionais compreendam, interpretem e gerem textos de maneira semelhante a comunicacao humana! 
+
+Com o avanco dos Modelos de Linguagem de Grande Escala (LLMs), tornou-se possivel gerar textos altamente coerentes e contextuais.
+Mas sera que o nosso filtro em Assembly RISC-V (e em C++) vai conseguir limpar tudo isso perfeitamente? 
+Eu, ele e ela sabemos que sim. Vamos testar (agora mesmo): 123... Fim do teste!
