@@ -14,7 +14,7 @@ int main() {
         return 1;
     }
 
-    vector<string> stopwords = {"o", "a", "os", "as", "um", "uma", "de", "do", "da", "em", "para", "com", "por", "e", "ou", "mas", "que", "se", "eu", "ele", "ela", ".", ",", "!", "?", ";", ":", "-", "(", ")"};
+    vector<string> stopwords = {"o", "a", "os", "as", "um", "uma", "de", "do", "da", "em", "para", "com", "por", "e", "ou", "mas", "que", "se"};
 
     string palavra_atual = "";
     char c;
