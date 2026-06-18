@@ -24,23 +24,11 @@
     sw_16: .asciz "mas"
     sw_17: .asciz "que"
     sw_18: .asciz "se"
-    sw_19: .asciz "eu"
-    sw_20: .asciz "ele"
-    sw_21: .asciz "ela"
-    sw_22: .asciz "."
-    sw_23: .asciz ","
-    sw_24: .asciz "!"
-    sw_25: .asciz "?"
-    sw_26: .asciz ";"
-    sw_27: .asciz ":"
-    sw_28: .asciz "-"
-    sw_29: .asciz "("
-    sw_30: .asciz ")"
 
     .align 2
 
-    stopwords: .word sw_1, sw_2, sw_3, sw_4, sw_5, sw_6, sw_7, sw_8, sw_9, sw_10, sw_11, sw_12, sw_13, sw_14, sw_15, sw_16, sw_17, sw_18, sw_19, sw_20, sw_21, sw_22, sw_23, sw_24, sw_25, sw_26, sw_27, sw_28, sw_29, sw_30
-    num_sw: .word 30
+    stopwords: .word sw_1, sw_2, sw_3, sw_4, sw_5, sw_6, sw_7, sw_8, sw_9, sw_10, sw_11, sw_12, sw_13, sw_14, sw_15, sw_16, sw_17, sw_18
+    num_sw: .word 18
 
 .text
 .globl main
